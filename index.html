@@ -2,12 +2,181 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Healthcare AI — Patient Intake</title>
+    <meta name="theme-color" content="#f6f8f6" />
+    <title>HediKiosk — Care starts here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="HediKiosk home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="13" fill="currentColor"/><path d="M20 10v20M10 20h20" stroke="white" stroke-width="3.2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">hedi<span>kiosk</span></span>
+        </a>
+
+        <div class="nav-label">Workspace</div>
+        <nav class="nav-links">
+          <a class="nav-link is-active" href="#home" data-section="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-5.2v-6.4H9.7V21H4.5a1 1 0 0 1-1-1V10Z"/></svg>
+            <span>Overview</span>
+          </a>
+          <a class="nav-link" href="#symptoms" data-section="symptoms">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z"/><path d="M12 7v10M7 12h10"/></svg>
+            <span>Symptom checker</span>
+          </a>
+          <a class="nav-link" href="#appointments" data-section="appointments">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17M8 14h2m4 0h2m-8 3h2"/></svg>
+            <span>Appointments</span>
+          </a>
+          <a class="nav-link" href="#health" data-section="health">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-8-4.6-8-10.2a4.5 4.5 0 0 1 8-2.8 4.5 4.5 0 0 1 8 2.8c0 5.6-8 10.2-8 10.2Z"/><path d="M7.5 12h3l1.5-3 2 6 1.5-3h1"/></svg>
+            <span>Health insights</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon" aria-hidden="true">?</div>
+            <div>
+              <strong>Need a hand?</strong>
+              <p>Our care team is here for you.</p>
+            </div>
+            <button class="icon-button help-button" type="button" aria-label="Contact care team">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+          <button class="profile-button" type="button" aria-label="Profile settings">
+            <span class="avatar">JD</span>
+            <span class="profile-copy"><strong>Jordan Davis</strong><small>Guest session</small></span>
+            <svg class="more-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="home">
+        <header class="topbar">
+          <div class="breadcrumb"><span>HediKiosk</span><span class="crumb-separator">/</span><strong id="page-label">Overview</strong></div>
+          <div class="topbar-actions">
+            <button class="language-button" type="button" aria-label="Change language">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3c2.2 2.4 3.2 5.4 3.2 9s-1 6.6-3.2 9c-2.2-2.4-3.2-5.4-3.2-9S9.8 5.4 12 3Z"/></svg>
+              <span>EN</span><span class="chevron">⌄</span>
+            </button>
+            <span class="topbar-divider"></span>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></svg>
+              <span class="notification-dot"></span>
+            </button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="status-dot"></span> YOUR CARE, MADE SIMPLE</p>
+              <h1>Good morning, Jordan <span class="wave" aria-hidden="true">✳</span></h1>
+              <p class="welcome-subtitle">A little support goes a long way. What can we help with today?</p>
+            </div>
+            <div class="date-chip">
+              <span class="calendar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17"/></svg></span>
+              <span><strong id="current-date">Today</strong><small>Care center · 9:00 AM–6:00 PM</small></span>
+            </div>
+          </section>
+
+          <section class="hero-card" id="symptoms" aria-labelledby="hero-title">
+            <div class="hero-copy">
+              <span class="ai-pill"><span class="sparkle">✦</span> YOUR AI HEALTH COMPANION</span>
+              <h2 id="hero-title">A healthier you<br />starts with a <em>conversation.</em></h2>
+              <p>Tell Hedi how you’re feeling. Get thoughtful guidance and find the right next step, whenever you need it.</p>
+              <button class="button button-light" type="button" data-open="symptom-modal">
+                Start a conversation <span aria-hidden="true">↗</span>
+              </button>
+              <div class="privacy-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg> Your conversation is private and secure</div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-orbit orbit-one"></div>
+              <div class="art-orbit orbit-two"></div>
+              <div class="art-glow"></div>
+              <div class="art-card art-card-top"><span class="mini-heart">♥</span><span>Here for you</span><span class="tiny-dots">•••</span></div>
+              <div class="art-person">
+                <div class="person-hair"></div><div class="person-face"></div><div class="person-neck"></div><div class="person-body"></div>
+              </div>
+              <div class="art-spark spark-a">✦</div><div class="art-spark spark-b">✳</div>
+              <div class="art-chat-bubble"><span class="bubble-dots"><i></i><i></i><i></i></span></div>
+              <div class="art-card art-card-bottom"><span class="check-circle">✓</span><span>Care, made personal</span></div>
+            </div>
+            <div class="hero-number">01 <span>/ 04</span></div>
+          </section>
+
+          <section class="section-heading">
+            <div><h2>How can we help?</h2><p>Choose a service to get started</p></div>
+            <button class="text-link" type="button" data-open="services-modal">View all services <span aria-hidden="true">→</span></button>
+          </section>
+
+          <section class="service-grid" aria-label="Healthcare services">
+            <button class="service-card service-primary" type="button" data-open="symptom-modal">
+              <span class="service-icon icon-lavender"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z"/><path d="M12 7v10M7 12h10"/></svg></span>
+              <span class="service-copy"><strong>Check symptoms</strong><small>Get guidance for how you’re feeling</small></span>
+              <span class="service-arrow">↗</span>
+            </button>
+            <button class="service-card" type="button" data-open="appointment-modal">
+              <span class="service-icon icon-peach"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17M8 14h2m4 0h2m-8 3h2"/></svg></span>
+              <span class="service-copy"><strong>Book a visit</strong><small>Find a time that works for you</small></span>
+              <span class="service-arrow">↗</span>
+            </button>
+            <button class="service-card" type="button" data-open="services-modal">
+              <span class="service-icon icon-mint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-8-4.6-8-10.2a4.5 4.5 0 0 1 8-2.8 4.5 4.5 0 0 1 8 2.8c0 5.6-8 10.2-8 10.2Z"/><path d="M7.5 12h3l1.5-3 2 6 1.5-3h1"/></svg></span>
+              <span class="service-copy"><strong>Health check-in</strong><small>Track your wellbeing over time</small></span>
+              <span class="service-arrow">↗</span>
+            </button>
+            <button class="service-card" type="button" data-open="services-modal">
+              <span class="service-icon icon-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V11m5 8.5V5m5 14.5V9m5 10.5V3"/><path d="M2.5 20.5h19"/></svg></span>
+              <span class="service-copy"><strong>Health insights</strong><small>Understand your health, simply</small></span>
+              <span class="service-arrow">↗</span>
+            </button>
+          </section>
+
+          <section class="bottom-grid">
+            <article class="insight-card" id="health">
+              <div class="card-heading"><div><span class="card-kicker">YOUR WELLBEING</span><h3>A moment for you</h3></div><span class="insight-icon">✦</span></div>
+              <p>Small check-ins can make a big difference. How are you feeling today?</p>
+              <div class="mood-options" role="group" aria-label="How are you feeling today?">
+                <button type="button" class="mood-option" data-mood="Great"><span>☀</span><small>Great</small></button>
+                <button type="button" class="mood-option" data-mood="Okay"><span>◡</span><small>Okay</small></button>
+                <button type="button" class="mood-option" data-mood="Low"><span>☁</span><small>Low</small></button>
+                <button type="button" class="mood-option" data-mood="Not well"><span>♡</span><small>Not well</small></button>
+              </div>
+              <p class="mood-feedback" id="mood-feedback" aria-live="polite"></p>
+            </article>
+            <article class="appointment-card" id="appointments">
+              <div class="appointment-decoration" aria-hidden="true">✳</div>
+              <span class="card-kicker">HERE WHEN YOU NEED US</span>
+              <h3>Care that fits<br />your schedule.</h3>
+              <p>Connect with a care professional in person or online.</p>
+              <button class="button button-dark" type="button" data-open="appointment-modal">Explore appointments <span aria-hidden="true">→</span></button>
+            </article>
+          </section>
+
+          <footer class="page-footer">
+            <span><span class="footer-heart">♥</span> Thoughtful care, one step at a time.</span>
+            <span>HediKiosk is here to support—not replace—your care team.</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close icon-button" type="button" aria-label="Close dialog">×</button>
+        <div class="modal-content" id="modal-content"></div>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
 </html>
